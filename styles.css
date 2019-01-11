@@ -1,0 +1,241 @@
+.version {
+  color: #730000;
+  font-family: ReithSansNewsRegular, Helvetica, Arial, sans-serif;
+  font-size: 4em;
+  line-height: 3rem;
+  font-weight: 700;
+  position: absolute;
+  top: .9rem;
+  right: 1rem;
+}
+
+/*@supports not (display:grid) {
+  .aJDbs {
+    display: block;
+    width: 60%;
+    margin: auto;
+  }
+}*/
+
+/* Aside
++++++++++++++++++++++++++++++++++*/
+.more-on-this {
+  display: inline-block;
+  margin: 0 0 1rem 1rem;
+  padding: 1rem;
+  position: relative;
+}
+
+@media (min-width: 37.5em) {
+  .more-on-this {
+    margin: 0 0 1rem 3rem;
+  }
+}
+
+.more-on-this strong {
+  color: #404040;
+  display: block;
+  font-family: ReithSansNewsRegular, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.25em;
+  line-height: 1.5rem;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.more-on-this ul {
+  border-left: 2px solid #B80000;
+  padding-left: 1em;
+  margin: 0;
+  list-style-type: none;
+}
+
+.more-on-this li {
+  font-family: ReithSansNewsRegular, Helvetica, Arial, sans-serif;
+  font-size: 0.9375em;
+  line-height: 1.25rem;
+  margin: 0;
+  margin-bottom: .75em;
+  padding: 0;
+}
+
+@media (min-width: 20em) {
+  .more-on-this li {
+    font-size: 1em;
+    line-height: 1.375rem;
+  }
+}
+
+.more-on-this li a {
+  color: #222222;
+  font-family: ReithSansNewsRegular, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.more-on-this li a:hover,
+.more-on-this li a:focus {
+  text-decoration: underline;
+}
+
+.more-on-this:focus-within {
+  background-color: #fff;
+}
+
+.skip-link:focus {
+  clip-path: unset;
+  -webkit-clip: auto;
+  clip: auto;
+  height: auto;
+  overflow: auto;
+  width: auto;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 4px 6px 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #222222;
+  font-family: ReithSansNewsRegular, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* More from the BBC - h2
++++++++++++++++++++++++++++++++++*/
+.more-from-the-bbc h2 {
+    color: #404040;
+    font-family: ReithSansNewsRegular, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1.25em;
+    line-height: 1.5rem;
+    margin: 0 0 0 1rem;
+    padding: 1rem 0;
+}
+
+@media (max-width: 37.4375em) and (min-width: 20em) {
+  .more-from-the-bbc h2 {
+    font-size: 1.5em;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 37.5em) {
+  .more-from-the-bbc h2 {
+    font-size: 2em;
+    line-height: 2.25rem;
+  }
+}
+
+/* Tabs
++++++++++++++++++++++++++++++++++*/
+.tabs {
+  margin: 0 1rem;
+}
+
+@media (max-width: 37.4375em) {
+  .tabs {
+    margin: 0;
+  }
+}
+
+.tabs>ul {
+  margin: 0;
+  padding: 1rem 0 0 0;
+  list-style: none;
+  background-color: #d5d0cd;
+  line-height: 0;
+}
+
+@media (max-width: 37.4375em) {
+  .tabs>ul {
+    padding: .4rem 1rem 0 .5rem;
+  }
+}
+
+.tabs ul>li {
+  display: inline-block;
+  margin: 0 0 0 1rem;
+}
+
+/* Adjusting space due to white space coming from HTML */
+.tabs ul>li.two,
+.tabs ul>li.three {
+  margin: 0 0 0 .7rem;
+}
+
+@media (max-width: 37.4375em) {
+  .tabs ul>li {
+    margin: 0 0 0 .5rem;
+  }
+
+  .tabs ul>li.two,
+  .tabs ul>li.three {
+    margin: 0 0 0 .25rem;
+  }
+}
+
+.tabs>ul a {
+  display: block;
+  padding: .6rem 1rem;
+  border-top: 4px solid #f5f3f1;
+  text-decoration: none;
+  color: #222222;
+  background-color: #f5f3f1;
+  font-family: ReithSansNewsRegular, Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.375rem;
+}
+
+@media (max-width: 37.4375em) {
+  .tabs>ul a {
+    padding: .6rem .5rem;
+  }
+}
+
+.tabs>ul a:hover,
+.tabs>ul a:focus {
+    border-top: 4px solid #b80000;
+}
+
+/*.tabs>ul a:focus-visible {
+    outline: inherit;
+}*/
+
+/*.tabs>ul a:focus:not(:focus-visible) {
+    outline: none;
+}*/
+
+.tabs [aria-selected=true],
+.tabs .selected-tab {
+    border-top: 4px solid #b80000;
+    background-color: #ffffff;
+  }
+
+.tabs [aria-selected=true]:hover,
+.tabs [aria-selected=true]:focus,
+.tabs .selected-tab:hover,
+.tabs .selected-tab:focus {
+  text-decoration: underline;
+}
+
+.tabs .gs-u-vh-heydon {
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+/* Tab panels
++++++++++++++++++++++++++++++++++*/
+.tabs .panel {
+  padding: 1rem 0;
+}
+
+/*.tabs > section:focus-within {
+  outline: 2px solid;
+  outline-offset: -2px;
+  outline-color: rgb(64, 64, 64);
+}*/
