@@ -239,3 +239,8 @@
   outline-offset: -2px;
   outline-color: rgb(64, 64, 64);
 }*/
+
+.hidden {
+  display: none;
+}
+
