@@ -51,6 +51,15 @@
       switchTab(oldIndex, newIndex);
     }, false);
 
+    tablist.addEventListener('keyup', function (e) {
+      if (e.which === 32) {
+        var selected = tablist.querySelector('span').parentNode;
+        var oldIndex = selected ? Array.prototype.indexOf.call(tabs, selected) : undefined;
+        var newIndex = Array.prototype.indexOf.call(tabs, e.target);
+        switchTab(oldIndex, newIndex);
+      }
+    }, false);
+
     window.addEventListener('DOMContentLoaded', function () {
       if (window.location.hash) {
         var tabMatch = Array.prototype.indexOf.call(
