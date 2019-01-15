@@ -6,7 +6,7 @@
 git clone git@github.com:sareh/accessible-tabs.git
 cd accessible-tabs
 npm install
-node index.js
+npm start
 ```
 
 
