@@ -64,15 +64,7 @@
       tabPanels.item(newIndex).classList.remove('hidden');
     }
 
-    function selectTab(index){
-      var tab = document.querySelectorAll('.tabs ul a')[index];
-      var panel = document.querySelectorAll('.tabs .panel')[index];
-      tab.setAttribute('aria-selected', 'true');
-      panel.removeAttribute('hidden');
-      panel.classList.remove('hidden');
-    }
-
-    selectTab(0);
+    switchTabs(0, 0);
 
     window.addEventListener('DOMContentLoaded', function () {
       if (window.location.hash) {
