@@ -13,6 +13,7 @@
         var span = document.getElementById('span');
         tabs[oldIndex].removeChild(span);
         panels[oldIndex].hidden = true;
+        panels[oldIndex].classList.add('hidden');
       }
 
       tabs[newIndex].setAttribute('class', 'selected-tab');
@@ -27,6 +28,7 @@
       tabs[newIndex].insertBefore(span, tabs[newIndex].childNodes[0] || null);
 
       panels[newIndex].hidden = false;
+      panels[newIndex].classList.remove('hidden');
 
       //var p = panels[newIndex].getElementsByTagName('p');
       //p[0].setAttribute('tabindex', '-1');
@@ -42,6 +44,7 @@
       //var p = panel.getElementsByTagName('p');
       //p[0].setAttribute('tabindex', '-1');
       panel.hidden = true;
+      panel.classList.add('hidden');
     });
 
     tablist.addEventListener('click', function (e) {
@@ -49,15 +52,6 @@
       var oldIndex = selected ? Array.prototype.indexOf.call(tabs, selected) : undefined;
       var newIndex = Array.prototype.indexOf.call(tabs, e.target);
       switchTab(oldIndex, newIndex);
-    }, false);
-
-    tablist.addEventListener('keyup', function (e) {
-      if (e.which === 32) {
-        var selected = tablist.querySelector('span').parentNode;
-        var oldIndex = selected ? Array.prototype.indexOf.call(tabs, selected) : undefined;
-        var newIndex = Array.prototype.indexOf.call(tabs, e.target);
-        switchTab(oldIndex, newIndex);
-      }
     }, false);
 
     window.addEventListener('DOMContentLoaded', function () {
