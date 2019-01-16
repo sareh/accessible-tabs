@@ -45,9 +45,9 @@
           tabs.item(oldIndex).setAttribute('aria-selected', 'false');
           clickedElem.setAttribute('aria-selected', 'true');
 
-          tabPanels.item(oldIndex).setAttribute('hidden', true);
+          tabPanels.item(oldIndex).hidden = true;
           tabPanels.item(oldIndex).classList.add('hidden');
-          tabPanels.item(newIndex).removeAttribute('hidden');
+          tabPanels.item(newIndex).hidden = false;
           tabPanels.item(newIndex).classList.remove('hidden');
         } else {
           e.preventDefault();
@@ -66,9 +66,9 @@
       tabs.item(oldIndex).setAttribute('aria-selected', 'false');
       tabs.item(newIndex).setAttribute('aria-selected', 'true');
 
-      tabPanels.item(oldIndex).setAttribute('hidden', true);
+      tabPanels.item(oldIndex).hidden = true;
       tabPanels.item(oldIndex).classList.add('hidden');
-      tabPanels.item(newIndex).removeAttribute('hidden');
+      tabPanels.item(newIndex).hidden = false;
       tabPanels.item(newIndex).classList.remove('hidden');
     }
 
