@@ -1,6 +1,6 @@
 (function () {
   var tabInterfaces = document.querySelectorAll('.tabs');
-  Array.prototype.forEach.call(tabInterfaces, function (tabInterface) {
+  Array.prototype.map.call(tabInterfaces, function (tabInterface) {
     // Save elements to memory
     var tablist = tabInterface.querySelector('ul');
     var tabs = tablist.querySelectorAll('a');
@@ -15,10 +15,9 @@
 
       tabs[newIndex].setAttribute('aria-selected', 'true');
       panels[newIndex].hidden = false;
-      //panels[newIndex].focus();
     }
 
-    Array.prototype.forEach.call(tabs, function (tab, i) {
+    Array.prototype.map.call(tabs, function (tab, i) {
       tab.setAttribute('role', 'tab');
       tab.setAttribute('aria-selected', 'false');
       tab.parentElement.setAttribute('role', 'presentation');
@@ -27,25 +26,54 @@
       var panel = panels[i];
       panel.setAttribute('role', 'tabpanel');
       panel.setAttribute('tabindex', '-1');
-      // panel.setAttribute('aria-labelledby', tab.id);
       panel.hidden = true;
+      panel.classList.add('hidden');
     });
 
-    tablist.addEventListener('click', function (e) {
-      var selected = tablist.querySelector('[aria-selected=true]');
-      var oldIndex = selected ? Array.prototype.indexOf.call(tabs, selected) : undefined;
-      var newIndex = Array.prototype.indexOf.call(tabs, e.target);
-      switchTab(oldIndex, newIndex);
+    var tabPanels = document.querySelectorAll('.tabs .panel');
+
+    Array.prototype.map.call(tabs, function (tab, i) {
+      tab.addEventListener('click', function (e) {
+        var clickedElem = e.target;
+        if(clickedElem.getAttribute('aria-selected') === 'false') {
+          var oldTab = tablist.querySelector('a[aria-selected=true]');
+          var oldIndex = Array.prototype.indexOf.call(tabs, oldTab);
+          var newIndex = Array.prototype.indexOf.call(tabs, e.target);
+
+          switchTabs(oldIndex, newIndex);
+
+          tabs.item(oldIndex).setAttribute('aria-selected', 'false');
+          clickedElem.setAttribute('aria-selected', 'true');
+
+          tabPanels.item(oldIndex).setAttribute('hidden', true);
+          tabPanels.item(oldIndex).classList.add('hidden');
+          tabPanels.item(newIndex).removeAttribute('hidden');
+          tabPanels.item(newIndex).classList.remove('hidden');
+        } else {
+          e.preventDefault();
+        }
+      });
     });
 
-    tablist.addEventListener('keyup', function (e) {
-      if (e.which === 32) {
-        var selected = tablist.querySelector('[aria-selected=true]');
-        var oldIndex = selected ? Array.prototype.indexOf.call(tabs, selected) : undefined;
-        var newIndex = Array.prototype.indexOf.call(tabs, e.target);
-        switchTab(oldIndex, newIndex);
-      }
-    });
+    function switchTabs(oldIndex, newIndex) {
+      tabs.item(oldIndex).setAttribute('aria-selected', 'false');
+      tabs.item(newIndex).setAttribute('aria-selected', 'true');
+
+      tabPanels.item(oldIndex).setAttribute('hidden', true);
+      tabPanels.item(oldIndex).classList.add('hidden');
+      tabPanels.item(newIndex).removeAttribute('hidden');
+      tabPanels.item(newIndex).classList.remove('hidden');
+    }
+
+    function selectTab(index){
+      var tab = document.querySelectorAll('.tabs ul a')[index];
+      var panel = document.querySelectorAll('.tabs .panel')[index];
+      tab.setAttribute('aria-selected', 'true');
+      panel.removeAttribute('hidden');
+      panel.classList.remove('hidden');
+    }
+
+    selectTab(0);
 
     window.addEventListener('DOMContentLoaded', function () {
       if (window.location.hash) {
@@ -54,7 +82,7 @@
           document.getElementById('tab-'+window.location.hash.substring(1))
         );
       }
-      switchTab(undefined, tabMatch > -1 ? tabMatch : 0);
+      switchTabs(0, tabMatch);
     });
   });
 })();
