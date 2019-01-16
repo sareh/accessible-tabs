@@ -46,6 +46,7 @@ function Tabbed(elem, options) {
         panel.setAttribute('aria-labelledby', tabs[i].id);
         //panel.setAttribute('tabindex', '-1');
         panel.hidden = true;
+        panel.classList.add('hidden');
       });
 
       // The tab switching function
@@ -68,8 +69,10 @@ function Tabbed(elem, options) {
         if (oldTab) {
           var oldIndex = Array.prototype.indexOf.call(tabs, oldTab);
           panels[oldIndex].hidden = true;
+          panels[oldIndex].classList.add('hidden');
         }
         panels[index].hidden = false;
+        panels[index].classList.remove('hidden');
 
         // Update hash unless no matching hash
         if (settings.trackHash && updateHash) {
