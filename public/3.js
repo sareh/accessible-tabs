@@ -41,14 +41,6 @@
           var newIndex = Array.prototype.indexOf.call(tabs, e.target);
 
           switchTabs(oldIndex, newIndex);
-
-          tabs.item(oldIndex).setAttribute('aria-selected', 'false');
-          clickedElem.setAttribute('aria-selected', 'true');
-
-          tabPanels.item(oldIndex).hidden = true;
-          tabPanels.item(oldIndex).classList.add('hidden');
-          tabPanels.item(newIndex).hidden = false;
-          tabPanels.item(newIndex).classList.remove('hidden');
         } else {
           e.preventDefault();
         }
