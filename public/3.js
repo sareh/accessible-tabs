@@ -48,7 +48,6 @@
 
       tab.addEventListener('keyup', function (e) {
         if(e.which === 32) {
-          console.log('are here!');
           e.target.click();
         }
       });
