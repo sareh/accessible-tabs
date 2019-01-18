@@ -30,7 +30,6 @@
     });
 
     var tabPanels = document.querySelectorAll('.tabs .panel');
-    var tabs = document.querySelectorAll('.tabs a');
 
     function switchTabs(oldIndex, newIndex) {
       tabPanels.item(oldIndex).hidden = true;
